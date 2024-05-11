@@ -120,6 +120,8 @@
             loginLink.textContent = data.name.split(" ")[0];
             iniciarSesion.textContent = "Modificar datos";
             iniciarSesion.href = "actualizarDatos.html";
+            cerrarSesion.style.display = "block";
+            borrarCuenta.style.display = "block";
 
             document.getElementById("nombre").value = data.name;
             document.getElementById("email").value = data.email;
