@@ -95,23 +95,23 @@
     </script>
 
 
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Tipo</th>
-            <th>Cantidad</th>
-            <th>Descripción</th>
-            <th>Modificar</th>
-            <th>Eliminar</th>
-          </tr>
-        </thead>
-        <tbody id="servicios-container">
-          <!-- Aquí se añadirán las filas de la tabla -->
-        </tbody>
-      </table>
-    </div>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Cantidad</th>
+        <th>Descripción</th>
+        <th>Modificar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody id="servicios-container">
+      <!-- Aquí se añadirán las filas de la tabla -->
+    </tbody>
+  </table>
+</div>
 
 
     <script>
@@ -161,8 +161,9 @@
               //eliminar la fila de la tabla
               document.getElementById(id).remove();
             }else{
-              alert("Error al eliminar el servicio");
-              console.log(response)
+              alert("Su sesión expiró. Inicie sesión de nuevo");
+              document.cookie = `${tokenCookie}=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=/;`;
+              window.location.href = "login.html";
             }
           }).catch(error=>{
             console.error("Error al eliminar el servicio", error);
