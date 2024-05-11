@@ -58,6 +58,14 @@
     </nav>
 
     <script>
+      function salir(){
+        const cookies = document.cookie.split("; ");
+        const tokenCookie = cookies.find(cookie => cookie.startsWith("token="));
+        
+        alert("Su sesión expiró. Inicie sesión de nuevo");
+        document.cookie = `${tokenCookie}=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=/;`;
+        window.location.href = "login.html";
+      }
 
       const loginLink = document.getElementById("loginLink");
       const iniciarSesion = document.getElementById("iniciarSesion");
@@ -83,9 +91,7 @@
             cerrarSesion.style.display = "block";
             borrarCuenta.style.display = "block";
           }else{
-            alert("Su sesión expiró. Inicie sesión de nuevo");
-            document.cookie = `${tokenCookie}=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=/;`;
-            window.location.href = "login.html";
+            salir();
           }
         }).catch(error => console.log(error))
       }else{
@@ -588,44 +594,15 @@
       </div>
 
       <script>
-        const cookies2 = document.cookie.split("; ");
-        const tokenCookie2 = cookies.find(cookie => cookie.startsWith("token="));
-        const token2 = tokenCookie ? tokenCookie.split("=")[1] : null;
+        function cerrarSesion(){
 
-        document.getElementById('formularioPedido1').addEventListener('submit', function(event)  {
-          event.preventDefault() // Evita el comportamiento predeterminado del formulario (recargar la página)
+        }
 
-          const formData = new FormData(this); //se crea un objeto FormData para obtener los datos del formulario
-          const jsonData = {}; //se crea un objeto jsonData, este contendra los valores del formulario
-          formData.forEach((value, key) => { //itera sobre el formData y pasa los valores a jsonData
-            jsonData[key] = value;
-          });
-          fetch('http://localhost:8000/api/services', { //envia solicitud POST
-            method: 'POST',
-            headers: {
-              "Authorization" : "Bearer " + token2,
-              "Content-Type" : "application/json"
-            },// Cabecera indicando el tipo de contenido
-            body: JSON.stringify(jsonData) // cuerpo de la solicitud en formato JSON
-          }).then(response => response.json()) // Convierte la respuesta a JSON
-          .then(data => {
-            console.log('Respuesta: ', data); // Muestra la respuesta en la consola
-            if(token2){
-              alert("Servicio agregado al carrito");//muestra una alerta de la respuesta
-              window.location.href = "index.html";
-            }else if(!token2){
-              alert("Inicie sesion o registrese para agregar al carrito")
-              window.location.href = "login.html";
-            }
-          }).catch(error =>{
-            console.log(error); // Maneja los errores mostrándolos en la consola
-          })
-        });
-        
-        document.getElementById('formularioPedido2').addEventListener('submit', function(event)  {
-          event.preventDefault() 
-
-          const formData = new FormData(this); 
+        function postService(formData){
+          const cookies2 = document.cookie.split("; ");
+          const tokenCookie2 = cookies2.find(cookie => cookie.startsWith("token="));
+          const token2 = tokenCookie2 ? tokenCookie2.split("=")[1] : null;
+ 
           const jsonData = {}; 
           formData.forEach((value, key) => { 
             jsonData[key] = value;
@@ -641,8 +618,14 @@
           .then(data => {
             console.log('Respuesta: ', data);
             if(token2){
-              alert("Servicio agregado al carrito");
-              window.location.href = "index.html";
+              if(data.error){
+                alert("Su sesión expiró. Inicie sesión de nuevo");
+                document.cookie = `${tokenCookie}=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=/;`;
+                window.location.href = "login.html";
+              }else{
+                alert("Servicio agregado al carrito");
+                window.location.href = "index.html";
+              }
             }else if(!token2){
               alert("Inicie sesion o registrese para agregar al carrito")
               window.location.href = "login.html";
@@ -650,119 +633,39 @@
           }).catch(error =>{
             console.log(error);
           })
+        }
+
+        document.getElementById('formularioPedido1').addEventListener('submit', function(event)  {
+          event.preventDefault() 
+          const formData = new FormData(this);
+          postService(formData);
+        });
+        document.getElementById('formularioPedido2').addEventListener('submit', function(event)  {
+          event.preventDefault() 
+          const formData = new FormData(this);
+          postService(formData);
         });
         document.getElementById('formularioPedido3').addEventListener('submit', function(event)  {
           event.preventDefault() 
-          const formData = new FormData(this); 
-          const jsonData = {}; 
-          formData.forEach((value, key) => { 
-            jsonData[key] = value;
-          });
-          fetch('http://localhost:8000/api/services', { 
-            method: 'POST',
-            headers: {
-              "Authorization" : "Bearer " + token2,
-              "Content-Type" : "application/json"
-            },
-            body: JSON.stringify(jsonData) 
-          }).then(response => response.json()) 
-          .then(data => {
-            console.log('Respuesta: ', data);
-            if(token2){
-              alert("Servicio agregado al carrito");
-              window.location.href = "index.html";
-            }else if(!token2){
-              alert("Inicie sesion o registrese para agregar al carrito")
-              window.location.href = "login.html";
-            }
-          }).catch(error =>{
-            console.log(error);
-          })
+          const formData = new FormData(this);
+          postService(formData);
         });
         document.getElementById('formularioPedido4').addEventListener('submit', function(event)  {
           event.preventDefault() 
-          const formData = new FormData(this); 
-          const jsonData = {}; 
-          formData.forEach((value, key) => { 
-            jsonData[key] = value;
-          });
-          fetch('http://localhost:8000/api/services', { 
-            method: 'POST',
-            headers: {
-              "Authorization" : "Bearer " + token2,
-              "Content-Type" : "application/json"
-            },
-            body: JSON.stringify(jsonData) 
-          }).then(response => response.json()) 
-          .then(data => {
-            console.log('Respuesta: ', data);
-            if(token2){
-              alert("Servicio agregado al carrito");
-              window.location.href = "index.html";
-            }else if(!token2){
-              alert("Inicie sesion o registrese para agregar al carrito")
-              window.location.href = "login.html";
-            }
-          }).catch(error =>{
-            console.log(error);
-          })
+          const formData = new FormData(this);
+          postService(formData);
         });
         document.getElementById('formularioPedido5').addEventListener('submit', function(event)  {
           event.preventDefault() 
-          const formData = new FormData(this); 
-          const jsonData = {}; 
-          formData.forEach((value, key) => { 
-            jsonData[key] = value;
-          });
-          fetch('http://localhost:8000/api/services', { 
-            method: 'POST',
-            headers: {
-              "Authorization" : "Bearer " + token2,
-              "Content-Type" : "application/json"
-            },
-            body: JSON.stringify(jsonData) 
-          }).then(response => response.json()) 
-          .then(data => {
-            console.log('Respuesta: ', data);
-            if(token2){
-              alert("Servicio agregado al carrito");
-              window.location.href = "index.html";
-            }else if(!token2){
-              alert("Inicie sesion o registrese para agregar al carrito")
-              window.location.href = "login.html";
-            }
-          }).catch(error =>{
-            console.log(error);
-          })
+          const formData = new FormData(this);
+          postService(formData);
         });
         document.getElementById('formularioPedido6').addEventListener('submit', function(event)  {
           event.preventDefault() 
-          const formData = new FormData(this); 
-          const jsonData = {}; 
-          formData.forEach((value, key) => { 
-            jsonData[key] = value;
-          });
-          fetch('http://localhost:8000/api/services', { 
-            method: 'POST',
-            headers: {
-              "Authorization" : "Bearer " + token2,
-              "Content-Type" : "application/json"
-            },
-            body: JSON.stringify(jsonData) 
-          }).then(response => response.json()) 
-          .then(data => {
-            console.log('Respuesta: ', data);
-            if(token2){
-              alert("Servicio agregado al carrito");
-              window.location.href = "index.html";
-            }else if(!token2){
-              alert("Inicie sesion o registrese para agregar al carrito")
-              window.location.href = "login.html";
-            }
-          }).catch(error =>{
-            console.log(error);
-          })
+          const formData = new FormData(this);
+          postService(formData);
         });
+
       </script>
 
       <script>
