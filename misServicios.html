@@ -95,6 +95,81 @@
     </script>
 
 
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Cantidad</th>
+            <th>Descripción</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody id="servicios-container">
+          <!-- Aquí se añadirán las filas de la tabla -->
+        </tbody>
+      </table>
+    </div>
+
+
+    <script>
+      const cookies2 = document.cookie.split("; ");
+      const tokenCookie2 = cookies.find(cookie => cookie.startsWith("token="));
+      const token2 = tokenCookie ? tokenCookie.split("=")[1] : null;
+
+      fetch('http://localhost:8000/api/services',{
+        method: "GET",
+        headers: {
+          "Authorization" : "Bearer " + token2,
+          "Content-Type" : "application/json"
+        }
+      }).then(response => response.json())
+      .then(data => {
+            const serviciosContainer = document.getElementById('servicios-container');
+            data.forEach(servicio => { //se itera sobre cada elemento de data (este tiene el contenido del back)
+              const row = document.createElement('tr'); // se crea una fila para la tabla
+              row.id = servicio._id; // Asignar el _id como el ID de la fila
+              row.innerHTML = `
+              <td>${servicio.nombre}</td>
+              <td>${servicio.tipo}</td>
+              <td>${servicio.cantidad}</td>
+              <td>${servicio.descripcion}</td>
+              <td><button class="btn btn-primary">Modificar</button></td>
+              <td><button class="btn btn-primary" onclick="eliminarServicio('${servicio._id}')">Eliminar</button></td>
+            `;
+            serviciosContainer.appendChild(row); //se agrega la fila al cuerpo de la tabla
+            });
+        })
+        .catch(error => {
+            console.error('Error al obtener servicios:', error);
+        });
+
+        function eliminarServicio(id){
+          fetch(`http://localhost:8000/api/services/${id}`,{
+            method: "DELETE",
+            headers: {
+              "Authorization" : "Bearer " + token2,
+            }
+          }).then(response=>{
+            if(response.ok){
+              alert("Servicio eliminado");
+              response.json().then(data => {
+                console.log(data.message);
+              });
+              //eliminar la fila de la tabla
+              document.getElementById(id).remove();
+            }else{
+              alert("Error al eliminar el servicio");
+              console.log(response)
+            }
+          }).catch(error=>{
+            console.error("Error al eliminar el servicio", error);
+          })
+        } 
+    </script>
+
 
       <!--Pie de pagina-->
       <section class="bg-dark text-light p-3 text-center text-sm-start altoNavbar">

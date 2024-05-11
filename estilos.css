@@ -56,6 +56,36 @@
 .btn{
     font-size: 13px;
 }
-#crearServicio {
+#crearServicio1 {
     float: right;
+}
+#crearServicio2 {
+    float: right;
+}
+#crearServicio3 {
+    float: right;
+}
+#crearServicio4 {
+    float: right;
+}
+#crearServicio5 {
+    float: right;
+}
+#crearServicio6 {
+    float: right;
+}
+table {
+    border: 1px solid #ddd;
+    width: 80%;
+  }
+th, td {
+    padding: 15px; 
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.table-container {
+    margin-top: 33px; 
+    margin-bottom: 60px; 
+    margin-left: 180px;
+    width: 90%; 
 }
