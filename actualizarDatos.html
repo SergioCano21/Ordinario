@@ -101,7 +101,7 @@
         const iniciarSesion = document.getElementById("iniciarSesion");
         const cerrarSesion = document.getElementById("cerrarSesion");
         const borrarCuenta = document.getElementById("borrarCuenta");
-  
+
         const cookies = document.cookie.split("; ");
         const tokenCookie = cookies.find(cookie => cookie.startsWith("token="));
         const token = tokenCookie ? tokenCookie.split("=")[1] : null;
@@ -157,16 +157,18 @@
             body: JSON.stringify(jsonData)
           }).then(response => response.json())
           .then(data =>{
-            if(data.error){
-              alert("Su sesión expiró. Inicie sesión de nuevo");
-              document.cookie = `${tokenCookie}=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=/;`;
-              window.location.href = "login.html";
-            }
-            else if(data.message){
-              alert(data.message);
-            }
             if(!data.error){
+              alert(data.message);
               window.location.href = "index.html";
+            }else{
+              if(data.message == "Acceso no autorizado"){
+                alert("Su sesión expiró. Inicie sesión de nuevo.")
+                document.cookie = `${tokenCookie}=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=/;`;
+                window.location.href = "login.html";
+              }
+              else{
+                alert(data.message);
+              }
             }
           }).catch(error => console.log("Error: ", error))
         });
