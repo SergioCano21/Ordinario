@@ -47,7 +47,8 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a id="iniciarSesion" class="dropdown-item" href="./login.html">Iniciar Sesion</a></li>
-                <li><a id="cerrarSesion" class="dropdown-item" href="./login.html">Cerrar Sesion</a></li>
+                <li><a id="cerrarSesion" class="dropdown-item" style="display: none;" href="./login.html">Cerrar Sesion</a></li>
+                <li><a id="borrarCuenta" class="dropdown-item" style="display: none;" href="./borrarCuenta.html">Eliminar Cuenta</a></li>
               </ul>
             </li>
           </ul>
@@ -58,14 +59,12 @@
     <script>
       const loginLink = document.getElementById("loginLink");
       const iniciarSesion = document.getElementById("iniciarSesion");
+      const cerrarSesion = document.getElementById("cerrarSesion");
+      const borrarCuenta = document.getElementById("borrarCuenta");
 
       const cookies = document.cookie.split("; ");
       const tokenCookie = cookies.find(cookie => cookie.startsWith("token="));
       const token = tokenCookie ? tokenCookie.split("=")[1] : null;
-
-      document.getElementById("cerrarSesion").addEventListener("click", function(event){
-        document.cookie = `${tokenCookie}=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=/;`;
-      })
 
       if(token){
         fetch("http://localhost:8000/api/users/data", {
@@ -79,11 +78,21 @@
             loginLink.textContent = data.name.split(" ")[0];
             iniciarSesion.textContent = "Modificar datos";
             iniciarSesion.href = "actualizarDatos.html";
+            cerrarSesion.style.display = "block";
+            borrarCuenta.style.display = "block";
+          }else{
+            alert("Su sesión expiró. Inicie sesión de nuevo");
+            document.cookie = `${tokenCookie}=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=/;`;
+            window.location.href = "login.html";
           }
         }).catch(error => console.log(error))
       }else{
         loginLink.textContent = "Login";
       }
+
+      cerrarSesion.addEventListener("click", function(event){
+        document.cookie = `${tokenCookie}=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=/;`;
+      })
     </script>
 
 

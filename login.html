@@ -47,7 +47,6 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="./login.html">Iniciar Sesion</a></li>
-                <li><a class="dropdown-item" href="./login.html">Cerrar Sesion</a></li>
               </ul>
             </li>
           </ul>
@@ -152,7 +151,6 @@
           //ya que aplicamos una funcion hash para guardarla en la base de datos
           //no creo que esté muy bien hacer esto pero por el bien del ejercicio lo dejaré así :)
           document.cookie = `password=${jsonData["password"]}; path=/;`
-
           window.location.href = "index.html";
         }
       }).catch(error => {
