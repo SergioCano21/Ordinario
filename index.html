@@ -171,6 +171,49 @@
           </div>
         </div>
       </div>
+
+      <!-- Segundo modal con el formulario -->
+      <div id="modalFormulario1" class="modal fade" tabindex="-1" aria-labelledby="modalFormularioLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalFormularioLabel">Añadir al carrito</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="formularioPedido">
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="nombre">Nombre</label>
+                    <input name="nombre" type="email" class="form-control" id="nombre" value="Tanque Estacionario" readonly required style="width: 175px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="tipo">Tipo</label>
+                    <input name="tipo" type="text" class="form-control" id="tipo" placeholder="" required style="width: 175px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="cantidad">Cantidad (MXN)</label>
+                    <input name="cantidad1" type="number" value="1" min="0" class="form-control" id="cantidad1" placeholder="" required style="width: 175px;" onchange="actualizarPrecio1()">
+                    <div class="text-center" id="precio1">(1450)</div>
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="descripcion">Descripcion</label>
+                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" required style="width: 175px;">
+                  </div>
+                </div>
+                <a type="button" class="btn btn-primary crear-servicio" id="crearServicio">Agregar al carrito</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="modal fade modal-xl" id="calentadorSolar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -205,6 +248,49 @@
           </div>
         </div>
       </div>
+
+      <!-- Segundo modal con el formulario -->
+      <div id="modalFormulario2" class="modal fade" tabindex="-1" aria-labelledby="modalFormularioLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalFormularioLabel">Añadir al carrito</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="formularioPedido">
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -12px;">
+                  <div class="col-sm-4">
+                    <label for="nombre">Nombre</label>
+                    <input name="nombre" type="email" class="form-control" id="nombre" value="Calentador Solar" readonly required style="width: 150px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -12px;">
+                  <div class="col-sm-4">
+                    <label for="tipo">Tipo</label>
+                    <input name="tipo" type="text" class="form-control" id="tipo" placeholder="" required style="width: 150px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -12px;">
+                  <div class="col-sm-4">
+                    <label for="cantidad">Cantidad (MXN)</label>
+                    <input name="cantidad2" type="number" value="1" min="0" class="form-control" id="cantidad2" placeholder="" required style="width: 150px;" onchange="actualizarPrecio2()">
+                    <div class="text-center" id="precio2">(1450)</div>
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -12px;">
+                  <div class="col-sm-4">
+                    <label for="descripcion">Descripcion</label>
+                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" required style="width: 150px;">
+                  </div>
+                </div>
+                <a type="button" class="btn btn-primary crear-servicio" id="crearServicio">Agregar al carrito</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="modal fade modal-xl" id="aireAcondicionado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -235,6 +321,49 @@
           </div>
         </div>
       </div>
+
+      <!-- Segundo modal con el formulario -->
+      <div id="modalFormulario3" class="modal fade" tabindex="-1" aria-labelledby="modalFormularioLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalFormularioLabel">Añadir al carrito</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="formularioPedido">
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -13px;">
+                  <div class="col-sm-4">
+                    <label for="nombre">Nombre</label>
+                    <input name="nombre" type="email" class="form-control" id="nombre" value="Aire Acondicionado" readonly required style="width: 170px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -13px;">
+                  <div class="col-sm-4">
+                    <label for="tipo">Tipo</label>
+                    <input name="tipo" type="text" class="form-control" id="tipo" placeholder="" required style="width: 170px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -13px;">
+                  <div class="col-sm-4">
+                    <label for="cantidad">Cantidad (MXN)</label>
+                    <input name="cantidad3" type="number" value="1" min="0" class="form-control" id="cantidad3" placeholder="" required style="width: 170px;" onchange="actualizarPrecio3()">
+                    <div class="text-center" id="precio3">(1450)</div>
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -13px;">
+                  <div class="col-sm-4">
+                    <label for="descripcion">Descripcion</label>
+                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" required style="width: 170px;">
+                  </div>
+                </div>
+                <a type="button" class="btn btn-primary crear-servicio" id="crearServicio">Agregar al carrito</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="modal fade modal-xl" id="calentadorElectrico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -265,6 +394,49 @@
           </div>
         </div>
       </div>
+
+      <!-- Segundo modal con el formulario -->
+      <div id="modalFormulario4" class="modal fade" tabindex="-1" aria-labelledby="modalFormularioLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalFormularioLabel">Añadir al carrito</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="formularioPedido">
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="nombre">Nombre</label>
+                    <input name="nombre" type="email" class="form-control" id="nombre" value="Calentador Electrico" readonly required style="width: 175px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="tipo">Tipo</label>
+                    <input name="tipo" type="text" class="form-control" id="tipo" placeholder="" required style="width: 175px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="cantidad">Cantidad (MXN)</label>
+                    <input name="cantidad4" type="number" value="1" min="0" class="form-control" id="cantidad4" placeholder="" required style="width: 175px;" onchange="actualizarPrecio4()">
+                    <div class="text-center" id="precio4">(950)</div>
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="descripcion">Descripcion</label>
+                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" required style="width: 175px;">
+                  </div>
+                </div>
+                <a type="button" class="btn btn-primary crear-servicio" id="crearServicio">Agregar al carrito</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="modal fade modal-xl" id="WC" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -300,6 +472,49 @@
           </div>
         </div>
       </div>
+
+      <!-- Segundo modal con el formulario -->
+      <div id="modalFormulario5" class="modal fade" tabindex="-1" aria-labelledby="modalFormularioLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalFormularioLabel">Añadir al carrito</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="formularioPedido">
+                <div class="d-sm-flex mb-3 justify-content-center px-2">
+                  <div class="col-sm-4">
+                    <label for="nombre">Nombre</label>
+                    <input name="nombre" type="email" class="form-control" id="nombre" value="WC" readonly required>
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2">
+                  <div class="col-sm-4">
+                    <label for="tipo">Tipo</label>
+                    <input name="tipo" type="text" class="form-control" id="tipo" placeholder="" required>
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2">
+                  <div class="col-sm-4">
+                    <label for="cantidad">Cantidad (MXN)</label>
+                    <input name="cantidad5" type="number" value="1" min="0" class="form-control" id="cantidad5" placeholder="" required onchange="actualizarPrecio5()">
+                    <div class="text-center" id="precio5">(550)</div>
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2">
+                  <div class="col-sm-4">
+                    <label for="descripcion">Descripcion</label>
+                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" required>
+                  </div>
+                </div>
+                <a type="button" class="btn btn-primary crear-servicio" id="crearServicio">Agregar al carrito</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="modal fade modal-xl" id="ventiladorTecho" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -330,25 +545,198 @@
         </div>
       </div>
 
+      <!-- Segundo modal con el formulario -->
+      <div id="modalFormulario6" class="modal fade" tabindex="-1" aria-labelledby="modalFormularioLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalFormularioLabel">Añadir al carrito</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="formularioPedido">
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="nombre">Nombre</label>
+                    <input name="nombre" type="email" class="form-control" id="nombre" value="Ventilador de Techo" readonly required style="width: 175px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="tipo">Tipo</label>
+                    <input name="tipo" type="text" class="form-control" id="tipo" placeholder="" required style="width: 175px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="cantidad">Cantidad (MXN)</label>
+                    <input name="cantidad6" type="number" value="1" min="0" class="form-control" id="cantidad6" placeholder="" required style="width: 175px;" onchange="actualizarPrecio6()">
+                    <div class="text-center" id="precio6">(550)</div>
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="descripcion">Descripcion</label>
+                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" required style="width: 175px;">
+                  </div>
+                </div>
+                <a type="button" class="btn btn-primary crear-servicio" id="crearServicio">Agregar al carrito</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <script>
-        document.getElementById('irAlCarrito1').addEventListener('click', function()  {
-          window.location.href = 'misServicios.html';
+        document.getElementById('irAlCarrito1').addEventListener('click', function(event)  {
+          const formData = new FormData(this);
+          const jsonData = {};
+          formData.forEach((value, key) => {
+            jsonData[key] = value;
+          });
+          fetch('http://localhost:3000/api/services', {
+            method: 'POST',
+            headers: {"Content-Type" : "application/json"},
+            body: JSON.stringify(jsonData)
+          }).then(response => response.json())
+          .then(data => {
+            console.log(data);
+            alert(data.message)
+          }).catch(error =>{
+            console.log(error);
+          })
         });
         document.getElementById('irAlCarrito2').addEventListener('click', function() {
-          window.location.href = 'misServicios.html';
+          
         });
         document.getElementById('irAlCarrito3').addEventListener('click', function() {
-          window.location.href = 'misServicios.html';
+
         });
         document.getElementById('irAlCarrito4').addEventListener('click', function() {
-          window.location.href = 'misServicios.html';
+
         });
         document.getElementById('irAlCarrito5').addEventListener('click', function() {
-          window.location.href = 'misServicios.html';
+
         });
         document.getElementById('irAlCarrito6').addEventListener('click', function() {
-          window.location.href = 'misServicios.html';
+
         });
+      </script>
+
+      <script>
+        // Obtener referencia al botón "Agregar al carrito"
+        const botonAgregarCarrito1 = document.getElementById('irAlCarrito1');
+
+        // Obtener referencia al segundo modal
+        const modalFormulario1 = document.getElementById('modalFormulario1');
+
+        // Obtener referencia al primer modal
+        const modalTanqueEstacionario = document.getElementById('tanqueEstacionario');
+
+        // Agregar evento de clic al botón "Agregar al carrito"
+        botonAgregarCarrito1.addEventListener('click', function() {
+          // Ocultar el primer modal
+          var modal1 = bootstrap.Modal.getInstance(modalTanqueEstacionario);
+          modal1.hide();
+
+          // Mostrar el segundo modal
+          var modal2 = new bootstrap.Modal(modalFormulario1);
+          modal2.show();
+        });
+        
+        const botonAgregarCarrito2 = document.getElementById('irAlCarrito2');
+        const modalFormulario2 = document.getElementById('modalFormulario2');
+        const calentadorSolar = document.getElementById('calentadorSolar');
+        botonAgregarCarrito2.addEventListener('click', function() {
+          var modal1 = bootstrap.Modal.getInstance(calentadorSolar);
+          modal1.hide();
+          var modal2 = new bootstrap.Modal(modalFormulario2);
+          modal2.show();
+        });
+
+        const botonAgregarCarrito3 = document.getElementById('irAlCarrito3');
+        const modalFormulario3 = document.getElementById('modalFormulario3');
+        const aireAcondicionado = document.getElementById('aireAcondicionado');
+        botonAgregarCarrito3.addEventListener('click', function() {
+          var modal1 = bootstrap.Modal.getInstance(aireAcondicionado);
+          modal1.hide();
+          var modal2 = new bootstrap.Modal(modalFormulario3);
+          modal2.show();
+        });
+
+        const botonAgregarCarrito4 = document.getElementById('irAlCarrito4');
+        const modalFormulario4 = document.getElementById('modalFormulario4');
+        const calentadorElectrico = document.getElementById('calentadorElectrico');
+        botonAgregarCarrito4.addEventListener('click', function() {
+          var modal1 = bootstrap.Modal.getInstance(calentadorElectrico);
+          modal1.hide();
+          var modal2 = new bootstrap.Modal(modalFormulario4);
+          modal2.show();
+        });
+
+        const botonAgregarCarrito5 = document.getElementById('irAlCarrito5');
+        const modalFormulario5 = document.getElementById('modalFormulario5');
+        const wc = document.getElementById('WC');
+        botonAgregarCarrito5.addEventListener('click', function() {
+          var modal1 = bootstrap.Modal.getInstance(wc);
+          modal1.hide();
+          var modal2 = new bootstrap.Modal(modalFormulario5);
+          modal2.show();
+        });
+
+        const botonAgregarCarrito6 = document.getElementById('irAlCarrito6');
+        const modalFormulario6 = document.getElementById('modalFormulario6');
+        const ventiladorTecho = document.getElementById('ventiladorTecho');
+        botonAgregarCarrito6.addEventListener('click', function() {
+          var modal1 = bootstrap.Modal.getInstance(ventiladorTecho);
+          modal1.hide();
+          var modal2 = new bootstrap.Modal(modalFormulario6);
+          modal2.show();
+        });
+      </script>
+
+      <script>
+        function actualizarPrecio1() {
+          var cantidad = document.getElementById("cantidad1").value;
+          var precioInicial = 1450;
+          var precioFinal = cantidad * precioInicial;
+          document.getElementById("precio1").innerText = "(" + precioFinal + ")";
+        }
+
+        function actualizarPrecio2() {
+          var cantidad = document.getElementById("cantidad2").value;
+          var precioInicial = 1450;
+          var precioFinal = cantidad * precioInicial;
+          document.getElementById("precio2").innerText = "(" + precioFinal + ")";
+        }
+
+        function actualizarPrecio3() {
+          var cantidad = document.getElementById("cantidad3").value;
+          var precioInicial = 1450;
+          var precioFinal = cantidad * precioInicial;
+          document.getElementById("precio3").innerText = "(" + precioFinal + ")";
+        }
+
+        function actualizarPrecio4() {
+          var cantidad = document.getElementById("cantidad4").value;
+          var precioInicial = 950;
+          var precioFinal = cantidad * precioInicial;
+          document.getElementById("precio4").innerText = "(" + precioFinal + ")";
+        }
+
+        function actualizarPrecio5() {
+          var cantidad = document.getElementById("cantidad5").value;
+          var precioInicial = 550;
+          var precioFinal = cantidad * precioInicial;
+          document.getElementById("precio5").innerText = "(" + precioFinal + ")";
+        }
+
+        function actualizarPrecio6() {
+          var cantidad = document.getElementById("cantidad6").value;
+          var precioInicial = 550;
+          var precioFinal = cantidad * precioInicial;
+          document.getElementById("precio6").innerText = "(" + precioFinal + ")";
+        }
       </script>
 
       <!--Informacion Adicional-->
