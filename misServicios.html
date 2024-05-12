@@ -165,7 +165,6 @@
 
               // Obtener el ID del servicio de la fila seleccionada
               const id = fila.id;
-
               // Actualizar el valor del campo oculto "idServicio" dentro del formulario
               document.getElementById('idServicio').value = id;
 
@@ -297,16 +296,27 @@
           }).then(response => response.json())
             .then(data => {
               console.log(data);
-              redirigir()
+              window.location.href = "misServicios.html";
           }).catch(error => {
             console.log(error);
             })
         })
 
-        function redirigir() {
-          window.location.href = "misServicios.html";
-        }
 
+        function actualizarPrecio(){
+          let cantidad = document.getElementById("cantidadInput").value
+          let nombre = document.getElementById("nombreInput").value
+          let precio
+          if(nombre == "Tanque Estacionario" ||nombre == "Calentador Solar" ||nombre=="Aire Acondicionado"){
+            precio = 1450
+          }else if(nombre == "Calentador Electrico"){
+            precio = 950
+          }else if(nombre == "WC" || nombre == "Ventilador de Techo"){
+            precio = 550
+          }
+          let precioFinal = cantidad * precio
+          document.getElementById("precioInput").value = precioFinal
+        }
     </script>
 
   
