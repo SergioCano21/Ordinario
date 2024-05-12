@@ -191,7 +191,7 @@
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
                   <div class="col-sm-4">
                     <label for="nombre">Nombre</label>
-                    <input name="nombre" type="email" class="form-control" id="nombre" value="Tanque Estacionario" readonly required style="width: 175px;">
+                    <input name="nombre" type="text" class="form-control" id="nombre" value="Tanque Estacionario" readonly required style="width: 175px;">
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
@@ -202,15 +202,26 @@
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
                   <div class="col-sm-4">
-                    <label for="cantidad">Cantidad (MXN)</label>
-                    <input name="cantidad" type="number" value="1" min="0" class="form-control" id="cantidad1" placeholder="" required style="width: 175px;" onchange="actualizarPrecio1()">
-                    <div class="text-center" id="precio1">(1450)</div>
+                    <label for="cantidad">Cantidad</label>
+                    <input name="cantidad" type="number" value="1" min="1" class="form-control" id="cantidad1" placeholder="" required style="width: 175px;" onchange="actualizarPrecio1()">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="precio">Precio (MXN)</label>
+                    <input name="precio" class="form-control" id="precio" value="1450" readonly required style="width: 175px;">
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
                   <div class="col-sm-4">
                     <label for="descripcion">Descripcion</label>
-                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" required style="width: 175px;">
+                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" style="width: 175px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="fecha">Fecha</label>
+                    <input name="fecha" type="date" class="form-control" id="fecha"  required style="width: 175px;">
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary" id="crearServicio1">Agregar al carrito</button>
@@ -268,7 +279,7 @@
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -12px;">
                   <div class="col-sm-4">
                     <label for="nombre">Nombre</label>
-                    <input name="nombre" type="email" class="form-control" id="nombre" value="Calentador Solar" readonly required style="width: 150px;">
+                    <input name="nombre" type="text" class="form-control" id="nombre" value="Calentador Solar" readonly required style="width: 150px;">
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -12px;">
@@ -279,15 +290,26 @@
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -12px;">
                   <div class="col-sm-4">
-                    <label for="cantidad">Cantidad (MXN)</label>
-                    <input name="cantidad" type="number" value="1" min="0" class="form-control" id="cantidad2" placeholder="" required style="width: 150px;" onchange="actualizarPrecio2()">
-                    <div class="text-center" id="precio2">(1450)</div>
+                    <label for="cantidad">Cantidad</label>
+                    <input name="cantidad" type="number" value="1" min="1" class="form-control" id="cantidad2" placeholder="" required style="width: 150px;" onchange="actualizarPrecio2()">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="precio">Precio (MXN)</label>
+                    <input name="precio" class="form-control" id="precio2" value="1450" readonly required style="width: 150px;">
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -12px;">
                   <div class="col-sm-4">
                     <label for="descripcion">Descripcion</label>
-                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" required style="width: 150px;">
+                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" style="width: 150px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="fecha">Fecha</label>
+                    <input name="fecha" type="date" class="form-control" id="fecha"  required style="width: 150px;">
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary" id="crearServicio2">Agregar al carrito</button>
@@ -341,7 +363,7 @@
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -13px;">
                   <div class="col-sm-4">
                     <label for="nombre">Nombre</label>
-                    <input name="nombre" type="email" class="form-control" id="nombre" value="Aire Acondicionado" readonly required style="width: 170px;">
+                    <input name="nombre" type="text" class="form-control" id="nombre" value="Aire Acondicionado" readonly required style="width: 170px;">
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -13px;">
@@ -352,15 +374,26 @@
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -13px;">
                   <div class="col-sm-4">
-                    <label for="cantidad">Cantidad (MXN)</label>
-                    <input name="cantidad" type="number" value="1" min="0" class="form-control" id="cantidad3" placeholder="" required style="width: 170px;" onchange="actualizarPrecio3()">
-                    <div class="text-center" id="precio3">(1450)</div>
+                    <label for="cantidad">Cantidad</label>
+                    <input name="cantidad" type="number" value="1" min="1" class="form-control" id="cantidad3" placeholder="" required style="width: 170px;" onchange="actualizarPrecio3()">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="precio">Precio (MXN)</label>
+                    <input name="precio" class="form-control" id="precio3" value="1450" readonly required style="width: 170px;">
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -13px;">
                   <div class="col-sm-4">
                     <label for="descripcion">Descripcion</label>
-                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" required style="width: 170px;">
+                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" style="width: 170px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="fecha">Fecha</label>
+                    <input name="fecha" type="date" class="form-control" id="fecha" required style="width: 170px;">
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary" id="crearServicio3">Agregar al carrito</button>
@@ -414,7 +447,7 @@
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
                   <div class="col-sm-4">
                     <label for="nombre">Nombre</label>
-                    <input name="nombre" type="email" class="form-control" id="nombre" value="Calentador Electrico" readonly required style="width: 175px;">
+                    <input name="nombre" type="text" class="form-control" id="nombre" value="Calentador Electrico" readonly required style="width: 175px;">
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
@@ -425,15 +458,26 @@
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
                   <div class="col-sm-4">
-                    <label for="cantidad">Cantidad (MXN)</label>
-                    <input name="cantidad" type="number" value="1" min="0" class="form-control" id="cantidad4" placeholder="" required style="width: 175px;" onchange="actualizarPrecio4()">
-                    <div class="text-center" id="precio4">(950)</div>
+                    <label for="cantidad">Cantidad</label>
+                    <input name="cantidad" type="number" value="1" min="1" class="form-control" id="cantidad4" placeholder="" required style="width: 175px;" onchange="actualizarPrecio4()">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="precio">Precio (MXN)</label>
+                    <input name="precio" class="form-control" id="precio4" value="950" readonly required style="width: 175px;">
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
                   <div class="col-sm-4">
                     <label for="descripcion">Descripcion</label>
-                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" required style="width: 175px;">
+                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" style="width: 175px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="fecha">Fecha</label>
+                    <input name="fecha" type="date" class="form-control" id="fecha"  required style="width: 175px;">
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary" id="crearServicio4">Agregar al carrito</button>
@@ -492,7 +536,7 @@
                 <div class="d-sm-flex mb-3 justify-content-center px-2">
                   <div class="col-sm-4">
                     <label for="nombre">Nombre</label>
-                    <input name="nombre" type="email" class="form-control" id="nombre" value="WC" readonly required>
+                    <input name="nombre" type="text" class="form-control" id="nombre" value="WC" readonly required>
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2">
@@ -503,15 +547,26 @@
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2">
                   <div class="col-sm-4">
-                    <label for="cantidad">Cantidad (MXN)</label>
-                    <input name="cantidad" type="number" value="1" min="0" class="form-control" id="cantidad5" placeholder="" required onchange="actualizarPrecio5()">
-                    <div class="text-center" id="precio5">(550)</div>
+                    <label for="cantidad">Cantidad</label>
+                    <input name="cantidad" type="number" value="1" min="1" class="form-control" id="cantidad5" placeholder="" required onchange="actualizarPrecio5()">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2">
+                  <div class="col-sm-4">
+                    <label for="precio">Precio (MXN)</label>
+                    <input name="precio" class="form-control" id="precio5" value="550" readonly>
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2">
                   <div class="col-sm-4">
                     <label for="descripcion">Descripcion</label>
-                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" required>
+                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2">
+                  <div class="col-sm-4">
+                    <label for="fecha">Fecha</label>
+                    <input name="fecha" type="date" class="form-control" id="fecha" required>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary" id="crearServicio5">Agregar al carrito</button>
@@ -564,7 +619,7 @@
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
                   <div class="col-sm-4">
                     <label for="nombre">Nombre</label>
-                    <input name="nombre" type="email" class="form-control" id="nombre" value="Ventilador de Techo" readonly required style="width: 175px;">
+                    <input name="nombre" type="text" class="form-control" id="nombre" value="Ventilador de Techo" readonly required style="width: 175px;">
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
@@ -575,15 +630,26 @@
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
                   <div class="col-sm-4">
-                    <label for="cantidad">Cantidad (MXN)</label>
-                    <input name="cantidad" type="number" value="1" min="0" class="form-control" id="cantidad6" placeholder="" required style="width: 175px;" onchange="actualizarPrecio6()">
-                    <div class="text-center" id="precio6">(550)</div>
+                    <label for="cantidad">Cantidad</label>
+                    <input name="cantidad" type="number" value="1" min="1" class="form-control" id="cantidad6" placeholder="" required style="width: 175px;" onchange="actualizarPrecio6()">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="precio">Precio (MXN)</label>
+                    <input name="precio" class="form-control" id="precio6" value="550" readonly required style="width: 175px;">
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
                   <div class="col-sm-4">
                     <label for="descripcion">Descripcion</label>
-                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" required style="width: 175px;">
+                    <input name="descripcion" type="text" class="form-control" id="descripcion" placeholder="" style="width: 175px;">
+                  </div>
+                </div>
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                  <div class="col-sm-4">
+                    <label for="fecha">Fecha</label>
+                    <input name="fecha" type="date" class="form-control" id="fecha" required style="width: 175px;">
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary" id="crearServicio6">Agregar al carrito</button>
@@ -594,10 +660,6 @@
       </div>
 
       <script>
-        function cerrarSesion(){
-
-        }
-
         function postService(formData){
           const cookies2 = document.cookie.split("; ");
           const tokenCookie2 = cookies2.find(cookie => cookie.startsWith("token="));
@@ -623,7 +685,6 @@
                 document.cookie = `${tokenCookie}=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=/;`;
                 window.location.href = "login.html";
               }else{
-                alert("Servicio agregado al carrito");
                 window.location.href = "index.html";
               }
             }else if(!token2){
@@ -745,42 +806,42 @@
           var cantidad = document.getElementById("cantidad1").value;
           var precioInicial = 1450;
           var precioFinal = cantidad * precioInicial;
-          document.getElementById("precio1").innerText = "(" + precioFinal + ")";
+          document.getElementById("precio").value = precioFinal; // Actualiza el valor del campo de precio
         }
 
         function actualizarPrecio2() {
           var cantidad = document.getElementById("cantidad2").value;
           var precioInicial = 1450;
           var precioFinal = cantidad * precioInicial;
-          document.getElementById("precio2").innerText = "(" + precioFinal + ")";
+          document.getElementById("precio2").value = precioFinal; 
         }
 
         function actualizarPrecio3() {
           var cantidad = document.getElementById("cantidad3").value;
           var precioInicial = 1450;
           var precioFinal = cantidad * precioInicial;
-          document.getElementById("precio3").innerText = "(" + precioFinal + ")";
+          document.getElementById("precio3").value = precioFinal; 
         }
 
         function actualizarPrecio4() {
           var cantidad = document.getElementById("cantidad4").value;
           var precioInicial = 950;
           var precioFinal = cantidad * precioInicial;
-          document.getElementById("precio4").innerText = "(" + precioFinal + ")";
+          document.getElementById("precio4").value = precioFinal; 
         }
 
         function actualizarPrecio5() {
           var cantidad = document.getElementById("cantidad5").value;
           var precioInicial = 550;
           var precioFinal = cantidad * precioInicial;
-          document.getElementById("precio5").innerText = "(" + precioFinal + ")";
+          document.getElementById("precio5").value = precioFinal; 
         }
 
         function actualizarPrecio6() {
           var cantidad = document.getElementById("cantidad6").value;
           var precioInicial = 550;
           var precioFinal = cantidad * precioInicial;
-          document.getElementById("precio6").innerText = "(" + precioFinal + ")";
+          document.getElementById("precio6").value = precioFinal; 
         }
       </script>
 

@@ -102,7 +102,9 @@
         <th>Nombre</th>
         <th>Tipo</th>
         <th>Cantidad</th>
+        <th>Precio (MXN)</th>
         <th>Descripción</th>
+        <th>Fecha</th>
         <th>Modificar</th>
         <th>Eliminar</th>
       </tr>
@@ -112,6 +114,7 @@
     </tbody>
   </table>
 </div>
+
 
 
     <script>
@@ -130,13 +133,19 @@
             const serviciosContainer = document.getElementById('servicios-container');
             data.forEach(servicio => { //se itera sobre cada elemento de data (este tiene el contenido del back)
               const row = document.createElement('tr'); // se crea una fila para la tabla
+              // Formatear la fecha
+              const fechaISO = servicio.fecha;
+              const fecha = new Date(fechaISO);
+              const fechaFormateada = fecha.toISOString().split('T')[0];
               row.id = servicio._id; // Asignar el _id como el ID de la fila
               row.innerHTML = `
               <td>${servicio.nombre}</td>
               <td>${servicio.tipo}</td>
               <td>${servicio.cantidad}</td>
-              <td>${servicio.descripcion}</td>
-              <td><button class="btn btn-primary">Modificar</button></td>
+              <td>${servicio.precio}</td>
+              <td>${servicio.descripcion ? servicio.descripcion : 'No hay'}</td>
+              <td>${fechaFormateada}</td> <!-- Aquí se muestra la fecha formateada -->
+              <td><button class="btn btn-primary btnModificar">Modificar</button></td>
               <td><button class="btn btn-primary" onclick="eliminarServicio('${servicio._id}')">Eliminar</button></td>
             `;
             serviciosContainer.appendChild(row); //se agrega la fila al cuerpo de la tabla
@@ -146,6 +155,45 @@
             console.error('Error al obtener servicios:', error);
         });
 
+
+
+        document.addEventListener('click', function(event) {
+          if (event.target.classList.contains('btnModificar')) {
+              // Obtener el botón que se hizo clic y su fila correspondiente
+              const btnModificar = event.target;
+              const fila = btnModificar.closest('tr');
+
+              // Obtener el ID del servicio de la fila seleccionada
+              const id = fila.id;
+
+              // Actualizar el valor del campo oculto "idServicio" dentro del formulario
+              document.getElementById('idServicio').value = id;
+
+              // Obtener los datos del servicio asociados a la fila
+              const nombre = fila.querySelector('td:nth-child(1)').innerText; //obtiene la primera celda de esa fila
+              const tipo = fila.querySelector('td:nth-child(2)').innerText;
+              const cantidad = fila.querySelector('td:nth-child(3)').innerText;
+              const precio = fila.querySelector('td:nth-child(4)').innerText;
+              const descripcion = fila.querySelector('td:nth-child(5)').innerText;
+              const fecha = fila.querySelector('td:nth-child(6)').innerText;
+
+              // Actualizar los valores de los campos del formulario
+              document.getElementById('nombreInput').value = nombre;
+              document.getElementById('tipoInput').value = tipo;
+              document.getElementById('cantidadInput').value = cantidad;
+              document.getElementById('precioInput').value = precio;
+              document.getElementById('descripcionInput').value = descripcion;
+              document.getElementById('fechaInput').value = fecha;
+
+              // Obtener el modal y mostrarlo
+              var modal = document.getElementById('modalFormulario');
+              var modalInstance = new bootstrap.Modal(modal);
+              modalInstance.show();
+          }
+        });
+
+
+
         function eliminarServicio(id){
           fetch(`http://localhost:8000/api/services/${id}`,{
             method: "DELETE",
@@ -154,7 +202,6 @@
             }
           }).then(response=>{
             if(response.ok){
-              alert("Servicio eliminado");
               response.json().then(data => {
                 console.log(data.message);
               });
@@ -169,7 +216,100 @@
             console.error("Error al eliminar el servicio", error);
           })
         } 
+
     </script>
+
+    <!-- modal formulario actualizar-->
+    <div id="modalFormulario" class="modal fade" tabindex="-1" aria-labelledby="modalFormularioLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalFormularioLabel">Modificar carrito</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="actualizarCarrito">
+              <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                <div class="col-sm-4">
+                  <label for="nombre">Nombre</label>
+                  <input name="nombre" type="text" class="form-control" id="nombreInput" readonly required style="width: 175px;">
+                </div>
+              </div>
+              <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                <div class="col-sm-4">
+                  <label for="tipo">Tipo</label>
+                  <input name="tipo" type="text" class="form-control" id="tipoInput" placeholder="" required style="width: 175px;">
+                </div>
+              </div>
+              <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                <div class="col-sm-4">
+                  <label for="cantidad">Cantidad</label>
+                  <input name="cantidad" type="number" min="1" class="form-control" id="cantidadInput" placeholder="" required style="width: 175px;" onchange="actualizarPrecio()">
+                </div>
+              </div>
+              <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                <div class="col-sm-4">
+                  <label for="precio">Precio (MXN)</label>
+                  <input name="precio" class="form-control" id="precioInput" readonly required style="width: 175px;">
+                </div>
+              </div>
+              <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                <div class="col-sm-4">
+                  <label for="descripcion">Descripcion</label>
+                  <input name="descripcion" type="text" class="form-control" id="descripcionInput" placeholder="" style="width: 175px;">
+                </div>
+              </div>
+              <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
+                <div class="col-sm-4">
+                  <label for="fecha">Fecha</label>
+                  <input name="fecha" type="date" class="form-control" id="fechaInput" required style="width: 175px;">
+                </div>
+              </div>
+              <input type="hidden" id="idServicio" name="idServicio">
+              <button type="submit" class="btn btn-primary" id="actualizarServicio">Agregar al carrito</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("actualizarCarrito").addEventListener("submit", function(event){
+          const cookies3 = document.cookie.split("; ");
+          const tokenCookie3 = cookies3.find(cookie => cookie.startsWith("token="));
+          const token3 = tokenCookie3 ? tokenCookie3.split("=")[1] : null;
+  
+          event.preventDefault();
+          const formData = new FormData(this);
+          const jsonData = {};
+          formData.forEach((value, key) => {
+              jsonData[key] = value;
+          });
+          // Obtener el ID del servicio desde el campo oculto idServicio
+          const idServicio = document.getElementById('idServicio').value;
+          fetch(`http://localhost:8000/api/services/${idServicio}`,{
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization" : "Bearer " + token3,
+            },
+            body: JSON.stringify(jsonData)
+          }).then(response => response.json())
+            .then(data => {
+              console.log(data);
+              redirigir()
+          }).catch(error => {
+            console.log(error);
+            })
+        })
+
+        function redirigir() {
+          window.location.href = "misServicios.html";
+        }
+
+    </script>
+
+  
 
 
       <!--Pie de pagina-->
