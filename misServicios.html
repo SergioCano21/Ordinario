@@ -95,41 +95,39 @@
     </script>
 
 
-<div class="table-container">
-  <table>
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Tipo</th>
-        <th>Cantidad</th>
-        <th>Precio (MXN)</th>
-        <th>Descripción</th>
-        <th>Fecha</th>
-        <th>Modificar</th>
-        <th>Eliminar</th>
-      </tr>
-    </thead>
-    <tbody id="servicios-container">
-      <!-- Aquí se añadirán las filas de la tabla -->
-    </tbody>
-  </table>
-</div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Cantidad</th>
+            <th>Precio (MXN)</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody id="servicios-container">
+          <!-- Aquí se añadirán las filas de la tabla -->
+        </tbody>
+      </table>
+    </div>
 
 
 
     <script>
-      const cookies2 = document.cookie.split("; ");
-      const tokenCookie2 = cookies.find(cookie => cookie.startsWith("token="));
-      const token2 = tokenCookie ? tokenCookie.split("=")[1] : null;
 
       fetch('http://localhost:8000/api/services',{
         method: "GET",
         headers: {
-          "Authorization" : "Bearer " + token2,
+          "Authorization" : "Bearer " + token,
           "Content-Type" : "application/json"
         }
       }).then(response => response.json())
       .then(data => {
+        console.log(data);
             const serviciosContainer = document.getElementById('servicios-container');
             data.forEach(servicio => { //se itera sobre cada elemento de data (este tiene el contenido del back)
               const row = document.createElement('tr'); // se crea una fila para la tabla
@@ -143,7 +141,7 @@
               <td>${servicio.tipo}</td>
               <td>${servicio.cantidad}</td>
               <td>${servicio.precio}</td>
-              <td>${servicio.descripcion ? servicio.descripcion : '-'}</td>
+              <td>${servicio.descripcion}</td>
               <td>${fechaFormateada}</td> <!-- Aquí se muestra la fecha formateada -->
               <td><button class="btn btn-primary btnModificar">Modificar</button></td>
               <td><button class="btn btn-primary" onclick="eliminarServicio('${servicio._id}')">Eliminar</button></td>
@@ -197,15 +195,14 @@
           fetch(`http://localhost:8000/api/services/${id}`,{
             method: "DELETE",
             headers: {
-              "Authorization" : "Bearer " + token2,
+              "Authorization" : "Bearer " + token,
             }
           }).then(response=>{
             if(response.ok){
               response.json().then(data => {
                 console.log(data.message);
-              });
-              //eliminar la fila de la tabla
-              document.getElementById(id).remove();
+              }); 
+              window.location.href = "misServicios.html";
             }else{
               alert("Su sesión expiró. Inicie sesión de nuevo");
               document.cookie = `${tokenCookie}=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=/;`;
@@ -234,10 +231,14 @@
                   <input name="nombre" type="text" class="form-control" id="nombreInput" readonly required style="width: 175px;">
                 </div>
               </div>
-              <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
-                <div class="col-sm-4">
+              <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: 4px;">
+                <div class="">
                   <label for="tipo">Tipo</label>
-                  <input name="tipo" type="text" class="form-control" id="tipoInput" placeholder="" required style="width: 175px;">
+                  <select class="form-select" name="tipo" id="tipoInput">
+                    <option disabled selected>Seleccione opcion</option>
+                    <option value="Mantenimiento">Mantenimiento</option>
+                    <option value="Instalacion">Instalación</option>
+                  </select>
                 </div>
               </div>
               <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
@@ -265,7 +266,7 @@
                 </div>
               </div>
               <input type="hidden" id="idServicio" name="idServicio">
-              <button type="submit" class="btn btn-primary" id="actualizarServicio">Agregar al carrito</button>
+              <button type="submit" class="btn btn-primary" id="actualizarServicio">Actualizar carrito</button>
             </form>
           </div>
         </div>
@@ -323,7 +324,7 @@
 
 
       <!--Pie de pagina-->
-      <section class="bg-dark text-light p-3 text-center text-sm-start altoNavbar">
+      <section class="footer bg-dark text-light p-3 text-center text-sm-start altoNavbar">
         <div class="container">
           <div class="d-sm-flex justify-content-between">
             <div>

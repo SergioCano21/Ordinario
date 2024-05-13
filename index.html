@@ -194,10 +194,14 @@
                     <input name="nombre" type="text" class="form-control" id="nombre" value="Tanque Estacionario" readonly required style="width: 175px;">
                   </div>
                 </div>
-                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
-                  <div class="col-sm-4">
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: 4px;">
+                  <div class="">
                     <label for="tipo">Tipo</label>
-                    <input name="tipo" type="text" class="form-control" id="tipo" placeholder="" required style="width: 175px;">
+                    <select class="form-select" name="tipo" id="tipo">
+                      <option disabled selected>Seleccione opcion</option>
+                      <option value="Mantenimiento">Mantenimiento</option>
+                      <option value="Instalacion">Instalación</option>
+                    </select>
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
@@ -282,10 +286,14 @@
                     <input name="nombre" type="text" class="form-control" id="nombre" value="Calentador Solar" readonly required style="width: 150px;">
                   </div>
                 </div>
-                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -12px;">
-                  <div class="col-sm-4">
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: 4px;">
+                  <div class="">
                     <label for="tipo">Tipo</label>
-                    <input name="tipo" type="text" class="form-control" id="tipo" placeholder="" required style="width: 150px;">
+                    <select class="form-select" name="tipo" id="tipo">
+                      <option disabled selected>Seleccione opcion</option>
+                      <option value="Mantenimiento">Mantenimiento</option>
+                      <option value="Instalacion">Instalación</option>
+                    </select>
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -12px;">
@@ -366,10 +374,14 @@
                     <input name="nombre" type="text" class="form-control" id="nombre" value="Aire Acondicionado" readonly required style="width: 170px;">
                   </div>
                 </div>
-                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -13px;">
-                  <div class="col-sm-4">
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: 4px;">
+                  <div class="">
                     <label for="tipo">Tipo</label>
-                    <input name="tipo" type="text" class="form-control" id="tipo" placeholder="" required style="width: 170px;">
+                    <select class="form-select" name="tipo" id="tipo">
+                      <option disabled selected>Seleccione opcion</option>
+                      <option value="Mantenimiento">Mantenimiento</option>
+                      <option value="Instalacion">Instalación</option>
+                    </select>
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -13px;">
@@ -450,10 +462,14 @@
                     <input name="nombre" type="text" class="form-control" id="nombre" value="Calentador Electrico" readonly required style="width: 175px;">
                   </div>
                 </div>
-                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
-                  <div class="col-sm-4">
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: 4px;">
+                  <div class="">
                     <label for="tipo">Tipo</label>
-                    <input name="tipo" type="text" class="form-control" id="tipo" placeholder="" required style="width: 175px;">
+                    <select class="form-select" name="tipo" id="tipo">
+                      <option disabled selected>Seleccione opcion</option>
+                      <option value="Mantenimiento">Mantenimiento</option>
+                      <option value="Instalacion">Instalación</option>
+                    </select>
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
@@ -539,10 +555,14 @@
                     <input name="nombre" type="text" class="form-control" id="nombre" value="WC" readonly required>
                   </div>
                 </div>
-                <div class="d-sm-flex mb-3 justify-content-center px-2">
-                  <div class="col-sm-4">
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: 4px;">
+                  <div class="">
                     <label for="tipo">Tipo</label>
-                    <input name="tipo" type="text" class="form-control" id="tipo" placeholder="" required>
+                    <select class="form-select" name="tipo" id="tipo">
+                      <option disabled selected>Seleccione opcion</option>
+                      <option value="Mantenimiento">Mantenimiento</option>
+                      <option value="Instalacion">Instalación</option>
+                    </select>
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2">
@@ -622,10 +642,14 @@
                     <input name="nombre" type="text" class="form-control" id="nombre" value="Ventilador de Techo" readonly required style="width: 175px;">
                   </div>
                 </div>
-                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
-                  <div class="col-sm-4">
+                <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: 4px;">
+                  <div class="">
                     <label for="tipo">Tipo</label>
-                    <input name="tipo" type="text" class="form-control" id="tipo" placeholder="" required style="width: 175px;">
+                    <select class="form-select" name="tipo" id="tipo">
+                      <option disabled selected>Seleccione opcion</option>
+                      <option value="Mantenimiento">Mantenimiento</option>
+                      <option value="Instalacion">Instalación</option>
+                    </select>
                   </div>
                 </div>
                 <div class="d-sm-flex mb-3 justify-content-center px-2" style="margin-left: -14px;">
@@ -681,10 +705,13 @@
             console.log('Respuesta: ', data);
             if(token2){
               if(data.error){
-                alert("Su sesión expiró. Inicie sesión de nuevo");
-                document.cookie = `${tokenCookie}=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=/;`;
-                window.location.href = "login.html";
-              }else{
+                if(data.message == "Acceso no autorizado"){
+                  salir();
+                }else{
+                  alert(data.message);
+                }
+              }else{  
+                alert(data.message);
                 window.location.href = "index.html";
               }
             }else if(!token2){
