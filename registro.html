@@ -82,7 +82,7 @@
             </div>
             <div class="d-sm-flex justify-content-center px-5">
               <div class=" py-2 col-sm-4">
-                <button id="registro" class="btn btn-primary" type="submit">Crear cuenta</button>
+                <button id="registro" class="btn btn-primary btnRegistro" type="submit">Crear cuenta</button>
               </div>
             </div>
           </div>
@@ -123,7 +123,7 @@
           });
           let apiURL;
           if(event.submitter.id == "registro"){
-            apiURL = "http://localhost:8000/api/users/register";
+            apiURL = "https://ordinario-backend.azurewebsites.net/api/users/register";
           }
 
           fetch(apiURL, {

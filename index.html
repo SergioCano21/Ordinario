@@ -77,7 +77,7 @@
       const token = tokenCookie ? tokenCookie.split("=")[1] : null;
 
       if(token){
-        fetch("http://localhost:8000/api/users/data", {
+        fetch("https://ordinario-backend.azurewebsites.net/api/users/data", {
           method: "GET",
           headers: {
             "Authorization" : "Bearer " + token
@@ -693,7 +693,7 @@
           formData.forEach((value, key) => { 
             jsonData[key] = value;
           });
-          fetch('http://localhost:8000/api/services', { 
+          fetch('https://ordinario-backend.azurewebsites.net/api/services', { 
             method: 'POST',
             headers: {
               "Authorization" : "Bearer " + token2,

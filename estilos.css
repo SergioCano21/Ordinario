@@ -80,22 +80,29 @@ th, td {
 .table-container {
     margin-top: 33px; 
     margin-bottom: 60px; 
-    margin-left: 180px;
-    width: 90%; 
+    margin-left: 124px;
 }
 html {
     min-height: 100%;
     position: relative;
 }
-body {
-    margin: 0;
+.btnLogin{
+    margin-bottom: 10px;
 }
-.footer {
-    margin-top: 100px;
+.btnRegistro{
+    margin-bottom: 17px;
+}
+.btnRecuperarCuenta{
+    margin-bottom: 15px;
+}
+.btnModificarCuenta{
+    margin-bottom: 17px;
+}
+.btnEliminarCuenta{
+    margin-bottom: 172px;
+}
+.footerServices{
     position: absolute;
     bottom: 0;
-    width: 100%;
-}
-.widthTable{
     width: 100%;
 }

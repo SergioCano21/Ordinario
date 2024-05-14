@@ -88,7 +88,7 @@
             </div>
             <div class="d-sm-flex justify-content-center px-5">
               <div class=" py-2 col-sm-4">
-                <button id="update" class="btn btn-primary" type="submit">Actualizar cuenta</button>
+                <button id="update" class="btn btn-primary btnModificarCuenta" type="submit">Actualizar cuenta</button>
               </div>
             </div>
           </div>
@@ -109,7 +109,7 @@
         const passwordCookie = cookies.find(cookie => cookie.startsWith("password=")).split("=")[1];
   
         if(token){
-          fetch("http://localhost:8000/api/users/data", {
+          fetch("https://ordinario-backend.azurewebsites.net/api/users/data", {
             method: "GET",
             headers: {
               "Authorization" : "Bearer " + token
@@ -146,7 +146,7 @@
           });
           let apiURL;
           if(event.submitter.id == "update"){
-            apiURL = "http://localhost:8000/api/users/modify";
+            apiURL = "https://ordinario-backend.azurewebsites.net/api/users/modify";
           }
           fetch(apiURL, {
             method: "PUT",

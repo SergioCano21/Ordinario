@@ -76,7 +76,7 @@
             </div>
             <div class="d-sm-flex justify-content-center px-5">
               <div class=" py-2 col-sm-4">
-                <button id="delete" class="btn btn-primary" type="submit">Eliminar cuenta</button>
+                <button id="delete" class="btn btn-primary btnEliminarCuenta" type="submit">Eliminar cuenta</button>
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@
         const token = tokenCookie ? tokenCookie.split("=")[1] : null;
   
         if(token){
-          fetch("http://localhost:8000/api/users/data", {
+          fetch("https://ordinario-backend.azurewebsites.net/api/users/data", {
             method: "GET",
             headers: {
               "Authorization" : "Bearer " + token
@@ -129,7 +129,7 @@
           });
           let apiURL;
           if(event.submitter.id == "delete"){
-            apiURL = "http://localhost:8000/api/users/delete";
+            apiURL = "https://ordinario-backend.azurewebsites.net/api/users/delete";
           }
           fetch(apiURL, {
             method: "DELETE",

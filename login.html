@@ -84,7 +84,7 @@
               </div>
             </div>
             <div class="px-5 py-1">
-              <button class="btn btn-primary" id="login" type="submit">Iniciar sesion</button>
+              <button class="btn btn-primary btnLogin" id="login" type="submit">Iniciar sesion</button>
             </div>
           </div>
           <div class="col-sm-6 d-flex flex-column justify-content-center align-items-center">
@@ -133,7 +133,7 @@
       });
       let apiURL;
       if(event.submitter.id == "login"){
-        apiURL = "http://localhost:8000/api/users/login";
+        apiURL = "https://ordinario-backend.azurewebsites.net/api/users/login";
       }
 
       fetch(apiURL, {
